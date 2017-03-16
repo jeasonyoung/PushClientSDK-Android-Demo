@@ -10,8 +10,124 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="linkus.pushclientsdkdemo.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout android:id="@+id/viewTop"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:weightSum="2">
+
+            <!-- 启动socket -->
+            <Button android:id="@+id/btnStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="启动socket"
+                android:textAlignment="center"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <!-- 关闭socket -->
+            <Button android:id="@+id/btnStop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="关闭socket"
+                android:textAlignment="center"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:weightSum="2">
+
+            <!-- 绑定设备标签 -->
+            <Button android:id="@+id/btnAddTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="绑定设备标签"
+                android:textAlignment="center"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <!-- 解除设备标签 -->
+            <Button android:id="@+id/btnClearTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="解除设备标签"
+                android:textAlignment="center"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="绑定标签:"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="center"
+                android:textSize="22sp"/>
+
+            <EditText android:id="@+id/txtTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:inputType="text"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/viewTop"
+        android:background="@color/colorPrimary">
+
+        <TextView android:id="@+id/tvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="消息显示"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    </ScrollView>
+
 </RelativeLayout>
