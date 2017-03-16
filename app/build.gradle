@@ -17,6 +17,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
@@ -33,6 +36,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.alibaba:fastjson:1.2.7'
-    compile 'com.linkus:PushClientSDK:1.1'
+    compile 'com.linkus:PushClientSDK:1.1.1'
     testCompile 'junit:junit:4.12'
 }
