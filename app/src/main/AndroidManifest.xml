@@ -28,7 +28,7 @@
     <uses-permission android:name="android.permission.BATTERY_STATS" />
 
     <!-- 广播权限 -->
-    <uses-permission android:name="push_broadcast_publish"/>
+    <uses-permission android:name="push_permission"/>
 
     <application
         android:allowBackup="true"
@@ -47,7 +47,7 @@
 
         <!-- 推送消息接收器 -->
         <receiver android:exported="true" android:name=".PushReceiver" android:process=":push_receive"
-            android:permission="push_broadcast_publish">
+            android:permission="push_permission">
             <intent-filter android:priority="0x7fffffff">
                 <!-- [必须]SDK内部广播 推送消息广播 -->
                 <action android:name="push_broadcast_publish"/>
@@ -68,7 +68,7 @@
 
         <!-- 推送服务 -->
         <service android:name="com.linkus.push.sdk.PushClientService"
-            android:exported="true" android:process=":push_service" android:permission="push_broadcast_publish"/>
+            android:exported="true" android:process=":push_service" android:permission="push_permission"/>
     </application>
 
 </manifest>
