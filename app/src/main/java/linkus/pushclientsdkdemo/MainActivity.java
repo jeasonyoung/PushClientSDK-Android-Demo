@@ -23,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //
-        sdk = new PushClientSDK(this);
+        try {
+            sdk = new PushClientSDK(this);
+        }catch (Exception e){
+            showToast(e.getMessage());
+        }
         //启动socket按钮
         final Button btnStart = (Button) findViewById(R.id.btnStart);
         btnStart.setOnClickListener(new View.OnClickListener() {

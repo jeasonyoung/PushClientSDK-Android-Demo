@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/><!-- 写文件 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
     <!-- [常用]推送SDK所需的权限 -->
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -26,9 +28,6 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
-
-    <!-- 广播权限 -->
-    <uses-permission android:name="push.permission.BROADCAST"/>
 
     <application
         android:allowBackup="true"
@@ -46,13 +45,14 @@
         </activity>
 
         <!-- 推送消息接收器 -->
-        <receiver android:exported="true" android:name=".PushReceiver" android:process=":push_receive"
-            android:permission="push.permission.BROADCAST">
+        <receiver android:exported="true" android:name=".PushReceiver">
             <intent-filter android:priority="0x7fffffff">
                 <!-- [必须]SDK内部广播 推送消息广播 -->
                 <action android:name="push_broadcast_publish"/>
                 <!-- [必须]SDK内部广播 错误消息广播 -->
                 <action android:name="push_broadcast_error"/>
+                <!-- [必须]SDK内部重启广播-->
+                <action android:name="push_broadcast_restart"/>
 
                 <!-- [必须]开屏和网络切换 -->
                 <action android:name="android.intent.action.USER_PRESENT"/>
@@ -67,8 +67,8 @@
         </receiver>
 
         <!-- 推送服务 -->
-        <service android:name="com.linkus.push.sdk.PushClientService"
-            android:exported="true" android:process=":push_service" android:permission="push.permission.BROADCAST"/>
+        <service android:name="com.linkus.push.sdk.PushClientService" android:process=":pushService"
+            android:exported="true"/>
     </application>
 
 </manifest>

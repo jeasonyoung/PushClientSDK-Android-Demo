@@ -36,6 +36,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.alibaba:fastjson:1.2.7'
-    compile 'com.linkus:PushClientSDK:1.1.3'
+    compile 'com.linkus:PushClientSDK:1.2.3'
     testCompile 'junit:junit:4.12'
 }
