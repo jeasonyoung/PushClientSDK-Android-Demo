@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         //
         try {
             sdk = new PushClientSDK(this);
+            sdk.start(PUSH_HOST, PUSH_ACCOUNT, PUSH_TOKEN, PUSH_DEVICE_TOKEN);
         }catch (Exception e){
             showToast(e.getMessage());
         }

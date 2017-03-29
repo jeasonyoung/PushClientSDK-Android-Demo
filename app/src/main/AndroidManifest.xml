@@ -66,9 +66,12 @@
             </intent-filter>
         </receiver>
 
-        <!-- 推送服务 -->
+        <!-- 推送通讯服务 -->
         <service android:name="com.linkus.push.sdk.PushClientService" android:process=":pushService"
             android:exported="true"/>
+
+        <!-- 推送守护服务 -->
+        <service android:name="com.linkus.push.sdk.PushClientDeamonService"/>
     </application>
 
 </manifest>
